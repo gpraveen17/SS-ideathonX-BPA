@@ -21,8 +21,8 @@ public static boolean retrivingTextFromImage(String imagePath,String textPath){
  return status;
 }
 public static void main(String args[]) throws IOException {
-    String imagePath = "C:\\GIT\\Balance-Sheet-Examples-2.jpg";
-    String textPath = "c:\\GIT\\File1.txt";
+    String imagePath = System. getProperty("user.dir")+"\\src\\resource\\Balance-Sheet.jpg";
+    String textPath = System. getProperty("user.dir")+"\\src\\resource\\Balance-Sheet.txt";
     retrivingTextFromImage(imagePath,textPath);
 
 }
