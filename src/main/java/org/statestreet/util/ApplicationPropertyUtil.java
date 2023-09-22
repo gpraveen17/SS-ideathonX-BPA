@@ -35,4 +35,8 @@ public class ApplicationPropertyUtil {
     public static String getDbPasswordFromProperty(){
         return EncoderUtil.getDecodedString(readPropertyFile().getProperty("password"));
     }
+
+    public static String getPythonExe(){
+        return readPropertyFile().getProperty("python_exe");
+    }
 }
