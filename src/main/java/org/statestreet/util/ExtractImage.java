@@ -5,9 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class RetrivingTextFromImage{
+public class ExtractImage {
 
-public static boolean retrivingTextFromImage(String imagePath,String textPath){
+public static boolean extractTextFromImage(String imagePath,String textPath){
  boolean status = false;
  try {
      String projectPath = System. getProperty("user.dir");
@@ -18,15 +18,19 @@ public static boolean retrivingTextFromImage(String imagePath,String textPath){
      String cmd = python+space+pythonFunction+"RetriveTextFromImage.py"+space+imagePath+space+textPath;
      Process process = Runtime.getRuntime().exec(cmd);
      status=true;
+     System.out.println("Data Extracted from image file successfully");
  } catch(Exception e){
-     System.out.println("Exception occurred while retrieving image from text file");
+     System.out.println("Exception occurred while retrieving text from image file");
  }
  return status;
 }
-public static void main(String args[]) throws IOException {
-    String imagePath = System. getProperty("user.dir")+"\\src\\resource\\Balance-Sheet.jpg";
-    String textPath = System. getProperty("user.dir")+"\\src\\resource\\Balance-Sheet.txt";
-    retrivingTextFromImage(imagePath,textPath);
+public static void main(String args[]) throws IOException, InterruptedException {
+
+    String imagePath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet.jpg";
+    String textPath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet1.txt";
+
+    extractTextFromImage(imagePath, textPath);
+    Thread.sleep(7000);
     HashMap<String, HashMap<String,String>> mapList = readDataFromTextFile(textPath);
     System.out.println("map : "+mapList);
 
