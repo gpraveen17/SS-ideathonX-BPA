@@ -14,9 +14,10 @@ public static boolean extractTextFromImage(String imagePath,String textPath){
      String python = "C:\\Users\\ideathon\\AppData\\Local\\Programs\\Python\\Python39\\python.exe";
      String pythonFunction = projectPath+"\\src\\main\\java\\org\\statestreet\\py\\";
      String space = " ";
+     System.out.println("PythonFunction::: " + pythonFunction);
 
      String cmd = python+space+pythonFunction+"RetriveTextFromImage.py"+space+imagePath+space+textPath;
-     System.out.println("Python Cmd : "+cmd);
+//     System.out.println("Python Cmd : "+cmd);
      Process process = Runtime.getRuntime().exec(cmd);
      status=true;
      System.out.println("Data Extracted from image file successfully");
@@ -28,7 +29,7 @@ public static boolean extractTextFromImage(String imagePath,String textPath){
 public static void main(String args[]) throws IOException, InterruptedException {
 
     String imagePath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet.jpg";
-    String textPath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet12.txt";
+    String textPath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet9.txt";
 
     extractTextFromImage(imagePath, textPath);
     Thread.sleep(7000);
