@@ -16,6 +16,7 @@ public static boolean extractTextFromImage(String imagePath,String textPath){
      String space = " ";
 
      String cmd = python+space+pythonFunction+"RetriveTextFromImage.py"+space+imagePath+space+textPath;
+     System.out.println("Python Cmd : "+cmd);
      Process process = Runtime.getRuntime().exec(cmd);
      status=true;
      System.out.println("Data Extracted from image file successfully");
@@ -27,7 +28,7 @@ public static boolean extractTextFromImage(String imagePath,String textPath){
 public static void main(String args[]) throws IOException, InterruptedException {
 
     String imagePath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet.jpg";
-    String textPath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet2.txt";
+    String textPath = System. getProperty("user.dir") + "\\src\\main\\resources\\Balance-Sheet12.txt";
 
     extractTextFromImage(imagePath, textPath);
     Thread.sleep(7000);
@@ -35,6 +36,8 @@ public static void main(String args[]) throws IOException, InterruptedException 
     System.out.println("map : "+mapList);
 
 }
+
+
 public static HashMap<String, HashMap<String,String>> readDataFromTextFile(String textFile){
     HashMap<String,HashMap<String,String>> maplist = new HashMap<>();
     HashMap<String,String> assetMap = new HashMap<>();
