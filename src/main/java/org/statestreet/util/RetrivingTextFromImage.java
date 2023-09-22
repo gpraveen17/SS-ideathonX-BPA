@@ -61,8 +61,16 @@ public static HashMap<String, HashMap<String,String>> readDataFromTextFile(Strin
             } else{
                 if(str.contains("$")){
                     if(str.contains("$")){
-                        String strList[] = str.split("$");
-                        liabilitiesMap.put(strList[0],strList[1]);
+                        //String strList[] = str.split("$");
+                        int index =0;
+                        char array[] = str.toCharArray();
+                        for(int i =0;i<array.length-1;i++){
+                            if(array[i]=='$'){
+                                index = i-1;
+                                break;
+                            }
+                        }
+                        liabilitiesMap.put(str.substring(0,index),str.substring(index,str.length()));
                     }
                 }
             }
@@ -73,6 +81,7 @@ public static HashMap<String, HashMap<String,String>> readDataFromTextFile(Strin
     }catch (Exception e ){
         System.out.println(" Exception while reading Text file ");
     }
+    //System.out.println("maplist : "+maplist);
 return maplist;
 }
 }
