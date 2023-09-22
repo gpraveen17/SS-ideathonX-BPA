@@ -19,24 +19,6 @@ public class DBConnection {
         return conn;
     }
 
-    public static void main(String[] args) {
-        try {
-            ;
-            ResultSet rs = getQueryData("select * from employee");
-            // Extract data from result set
-            while (rs.next()) {
-                // Retrieve by column name
-                System.out.print("ID: " + rs.getInt("id"));
-                System.out.print(", Age: " + rs.getInt("age"));
-                System.out.print(", First: " + rs.getString("firstname"));
-                System.out.println(", Last: " + rs.getString("lastname"));
-            }
-            executeUpdateQuery("delete from employee");
-            executeUpdateQuery("Insert into employee values(2,33,'Shweta','Khatri')");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public static ResultSet getQueryData(String query) {
         try {
